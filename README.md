@@ -14,7 +14,7 @@ In the various tests, the values of the learning rate (lr) and weight decay were
 ### Best Hyperparameters:
 #### AdamW:
 - weight_decay: 1e-1
-- lr: 5e-4
+- lr: 1e-4
 - β1: 0.9
 - β2: 0.999
 - batch_size: 64
@@ -84,7 +84,7 @@ Other hyperparameters are directly set in the 'Define hyperparameters' section o
 
 Command Line Structure:
 ```python
-%run script_name.py --k workers_num --j step_num
+%run script_name.py --k <workers_num> --j <step_num>
 ```
 Example:
 ```python
@@ -96,7 +96,7 @@ Example:
 - momentum: 0.9
 - weight_decay: 4e-4
 ## SlowMo
-In this section, testing is configured similarly to LocalSGD, allowing the selection of workers (K) and local steps (J) via the command line. 
+In this section, to perform testing, we configured the code to allow the selection of workers (K) and local steps (J) via the command line. 
 ### **Scripts**:
 The script is:
 `Distributed_LocalSGD_SlowMo.ipynb` and the three required parameters are:
@@ -109,7 +109,7 @@ Other hyperparameters are defined in the 'Define hyperparameters' section of the
 
 Command Line Structure:
 ```python
-%run script_name.py --k workers_num --j step_num
+%run script_name.py --k <workers_num> --j <step_num>
 ```
 Example:
 ```
@@ -127,9 +127,9 @@ Example:
 For this section of the project, testing was configured to allow the selection of workers (K) and initial local steps (J) via the command line. 
 ### **Scripts**:
 The script is:
-`DynamicSGD_starting_code.ipynb` and three parameters must be provided:
+`DynamicSGD.ipynb` and three parameters must be provided:
 
-- The name of the file to execute, ending with .py (in this case, 'localSGD.py').
+- The name of the file to execute, ending with .py (in this case, 'DynamicSGD.py').
 - The number of workers (K: [2, 4, 8]).
 - The number of local steps (J).
 
@@ -137,22 +137,20 @@ Other hyperparameters are defined in the 'Define hyperparameters' section of the
 
 Command Line Structure:
 ``` python
-%run script_name.py --k workers_num --j step_num
+%run script_name.py --k <workers_num> --j <step_num>
 ```
 
 Example:
 ```
-%run localSGD.py --k 2 --j 32
+%run DynamicSGD.py --k 2 --j 32
 ```
-### Best Hyperparameters:
+### Hyperparameters to use:
 - batch_size: 64
 - base_learning_rate: 1e-3
 - momentum: 0.9
 - weight_decay: 4e-4
-
-Best results were achieved by setting:
-
 - H_min: 4
 - H_max: 64
-- alpha: 
 - epsilon: 1e-6
+
+
